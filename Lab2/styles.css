@@ -107,3 +107,33 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background: #d6d6d6;
 }
+
+.auth-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("images/background1.png") no-repeat center center / cover;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.checkbox-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.checkbox-line label {
+    margin: 0;
+    font-weight: normal;
+}
