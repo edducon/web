@@ -1,18 +1,15 @@
-// ===== 1) pow(x, n) — без проверок, как в методичке
 function pow(x, n) {
     let r = 1;
     for (let i = 0; i < n; i++) r *= x;
     return r;
 }
 
-// ===== 2) gcd(a, b) — Евклид, минимальные приведения к целому
 function gcd(a, b) {
     a = a | 0; b = b | 0;
     while (b !== 0) { const t = b; b = a % b; a = t; }
     return a;
 }
 
-// ===== 3) minDigit(x) — наименьшая цифра, работаем с BigInt
 function minDigit(x) {
     x = BigInt(x);
     if (x === 0n) return 0n;
@@ -26,25 +23,24 @@ function minDigit(x) {
     return min;
 }
 
-// ===== 4) pluralizeRecords(n) — русские формы
 function pluralizeRecords(n) {
     n = Math.abs(n) | 0;
     const m10 = n % 10, m100 = n % 100;
     const one = (m10 === 1) && (m100 !== 11);
     const few = (m10 >= 2 && m10 <= 4) && !(m100 >= 12 && m100 <= 14);
+
     const word = one ? 'запись' : few ? 'записи' : 'записей';
-    return `В результате выполнения запроса было найдено ${n} ${word}`;
+    const verb = one ? 'была найдена' : few ? 'были найдены' : 'было найдено';
+
+    return `В результате выполнения запроса ${verb} ${n} ${word}`;
 }
 
-// ===== 5) fibb(n) — итеративно, BigInt
 function fibb(n) {
     n = n | 0;
     let a = 0n, b = 1n;
     for (let i = 0; i < n; i++) { const c = a + b; a = b; b = c; }
     return a;
 }
-
-// ===== обработчики без try/catch
 
 document.getElementById('pow-run').addEventListener('click', () => {
     const x = Number(document.getElementById('pow-x').value);
