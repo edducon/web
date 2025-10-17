@@ -1,4 +1,5 @@
 <?php
+global $mysql;
 require_once __DIR__.'/db.php';
 $terms = $mysql->query("SELECT id, term, definition FROM terms ORDER BY term")->fetch_all(MYSQLI_ASSOC);
 ?>

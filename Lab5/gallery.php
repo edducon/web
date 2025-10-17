@@ -1,4 +1,5 @@
 <?php
+global $mysql;
 require_once __DIR__.'/db.php';
 
 $sql  = "SELECT filename, name FROM images ORDER BY id";

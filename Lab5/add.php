@@ -1,4 +1,5 @@
 <?php
+global $mysql;
 require_once __DIR__.'/db.php';
 
 $ok = null; $err = null;
