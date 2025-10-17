@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Лабораторная №6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<main>
+  <section class="card" id="pow-card">
+    <h2>1) Возведение в степень (pow)</h2>
+    <div class="row">
+      <label>Основание x:</label>
+      <input type="number" id="pow-x" value="2" step="any">
+    </div>
+    <div class="row">
+      <label>Степень n (натуральное):</label>
+      <input type="number" id="pow-n" value="5" min="1" step="1">
+    </div>
+    <div class="row">
+      <button class="btn" id="pow-run">Посчитать</button>
+      <output id="pow-out"></output>
+    </div>
+    <pre class="code">
+function pow(x, n) {
+  if (!Number.isInteger(n) || n < 1) throw new Error('n — натуральное (>=1)');
+  let result = 1;
+  for (let i = 0; i < n; i++) result *= x;
+  return result;
+}</pre>
+  </section>
+
+  <section class="card" id="gcd-card">
+    <h2>2) Наибольший общий делитель (gcd)</h2>
+    <div class="row">
+      <label>a:</label>
+      <input type="number" id="gcd-a" value="48" min="0" step="1">
+    </div>
+    <div class="row">
+      <label>b:</label>
+      <input type="number" id="gcd-b" value="18" min="0" step="1">
+    </div>
+    <div class="row">
+      <button class="btn" id="gcd-run">Вычислить</button>
+      <output id="gcd-out"></output>
+    </div>
+    <pre class="code">
+function gcd(a, b) {
+  a = Math.abs(a|0); b = Math.abs(b|0);
+  while (b !== 0) { const t = b; b = a % b; a = t; }
+  return a;
+}</pre>
+  </section>
+
+  <section class="card" id="mindigit-card">
+    <h2>3) Наименьшая цифра (minDigit)</h2>
+    <div class="row">
+      <label>x (целое неотрицательное):</label>
+      <input type="number" id="md-x" value="90716420" min="0" step="1">
+    </div>
+    <div class="row">
+      <button class="btn" id="md-run">Найти</button>
+      <output id="md-out"></output>
+    </div>
+    <pre class="code">function minDigit(x) {
+  x = BigInt(x);
+  let min = 9n;
+  if (x === 0n) return 0n;
+  while (x > 0n) {
+    const d = x % 10n;
+    if (d < min) min = d;
+    if (min === 0n) break;
+    x /= 10n;
+  }
+  return min; // BigInt
+}</pre>
+  </section>
+
+  <section class="card" id="plural-card">
+    <h2>4) Pluralization (pluralizeRecords)</h2>
+    <div class="row">
+      <label>n (целое неотрицательное):</label>
+      <input type="number" id="pl-n" value="21" min="0" step="1">
+    </div>
+    <div class="row">
+      <button class="btn" id="pl-run">Сформировать строку</button>
+      <output id="pl-out"></output>
+    </div>
+    <pre class="code">
+function pluralizeRecords(n) {
+  n = Math.trunc(Math.abs(n));
+  const mod10 = n % 10, mod100 = n % 100;
+  const one = (mod10 === 1) && (mod100 !== 11);
+  const few = (mod10 >= 2 && mod10 <= 4) && !(mod100 >= 12 && mod100 <= 14);
+  const word = one ? 'запись' : few ? 'записи' : 'записей';
+  return `В результате выполнения запроса было найдено ${n} ${word}`;
+}</pre>
+  </section>
+
+  <section class="card" id="fibb-card">
+    <h2>5) Числа Фибоначчи (fibb)</h2>
+    <div class="row">
+      <label>n (0…1000):</label>
+      <input type="number" id="fb-n" value="50" min="0" max="1000" step="1">
+    </div>
+    <div class="row">
+      <button class="btn" id="fb-run">Получить F(n)</button>
+      <output id="fb-out"></output>
+    </div>
+    <pre class="code">
+function fibb(n) {
+  n = Math.trunc(n);
+  if (n < 0 || n > 1000) throw new Error('n от 0 до 1000');
+  let a = 0n, b = 1n; // F(0), F(1)
+  for (let i = 0; i < n; i++) [a, b] = [b, a + b];
+  return a; // BigInt
+}</pre>
+  </section>
+</main>
+
+<footer>
+  <a class="btn" href="#" id="run-all">Запустить все примеры</a>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

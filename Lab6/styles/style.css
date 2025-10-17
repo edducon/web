@@ -1,0 +1,14 @@
+body{font-family:Arial, sans-serif;margin:0;background:#fafafa;color:#222}
+header{padding:16px;border-bottom:1px solid #eee}
+main{max-width:1000px;margin:24px auto;padding:0 16px;display:grid;gap:18px}
+.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+h1{margin:0 0 4px 0}
+h2{margin:0 0 12px 0}
+.row{display:flex;align-items:center;gap:12px;margin:8px 0}
+.row label{width:260px}
+input[type=number]{max-width:260px;padding:8px;border:1px solid #ccc;border-radius:8px}
+.btn{display:inline-block;padding:10px 16px;border:none;border-radius:8px;background:#1a73e8;color:#fff;text-decoration:none;cursor:pointer}
+.btn:hover{background:#155ec0}
+output{font-weight:600}
+pre.code{background:#f7f7f7;border:1px solid #eee;border-radius:8px;padding:10px;overflow:auto}
+footer{max-width:1000px;margin:0 auto 24px; padding:0 16px}
