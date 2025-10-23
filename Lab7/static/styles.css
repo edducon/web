@@ -1,0 +1,77 @@
+/* Простые стили, как будто только начали учить CSS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Prompt', Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc-container {
+    width: 340px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.screen {
+    background: red;
+    color: #fff;
+    padding: 18px;
+    text-align: right;
+    font-family: 'Orbitron', monospace;
+    font-size: 28px;
+}
+
+.screen span {
+    display: inline-block;
+    min-width: 1ch;
+}
+
+.buttons {
+    display: flex;
+    border-top: 1px solid #eee;
+}
+
+.digits, .other {
+    padding: 12px;
+}
+
+.digits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    flex: 1;
+}
+
+.other {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 140px;
+    border-left: 1px solid #eee;
+}
+
+.key {
+    height: 48px;
+    border-radius: 24px;
+    border: 1px solid #cfcfcf;
+    background: #e6e6e6;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.key:active {
+    transform: translateY(1px);
+}
