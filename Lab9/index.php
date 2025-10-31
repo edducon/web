@@ -12,7 +12,14 @@ $precision = 3;
 
 function f_val($x,$p=3){
     if($x<=10) return round(7*$x+18,$p);
-    if($x<20){ $d=8-0.5*$x; return (abs($d)<1e-12)?'error':round(($x-17)/$d,$p); }
+    if ($x < 20) {
+        $denominator = 8 - ($x / 2);
+        if (abs($denominator) < 1e-12) {
+            return 'error';
+        }
+        $value = ($x - 17) / $denominator;
+        return round($value, $p);
+    }
     return round(($x+4)*($x-7),$p);
 }
 function fmt($v){
