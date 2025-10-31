@@ -1,0 +1,62 @@
+*{box-sizing:border-box}
+html,body{min-height:100vh;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f5f7fb;color:#10131a}
+header{position:sticky;top:0;background:#0b3d91;color:#fff;padding:10px;z-index:10}
+nav a{margin-right:12px;text-decoration:none;color:#eaf2ff;padding:6px 10px;border-radius:8px}
+nav a:hover{background:rgba(255,255,255,.14)}
+main{max-width:1100px;margin:0 auto;padding:20px}
+h1,h2{margin:8px 0 12px}
+table{width:100%;border-collapse:collapse;background:#fff;margin-top:12px;border:1px solid #e3e8f2;border-radius:12px;overflow:hidden}
+th,td{border-bottom:1px solid #eef2f7;padding:10px;text-align:left}
+th{background:#f3f6fb;font-weight:700}
+img.thumb{width:72px;height:72px;object-fit:cover;border-radius:8px;border:1px solid #e7ebf3}
+footer{background:#12161f;color:#d7d9df;padding:14px;margin-top:auto;text-align:center;font-size:14px}
+.btn{display:inline-block;padding:8px 12px;border:1px solid #0b3d91;background:#0b3d91;color:#fff;border-radius:10px;cursor:pointer;text-decoration:none;font-weight:600}
+.btn:hover{filter:brightness(.95)}
+.notice{padding:10px;border-radius:10px;margin:10px 0}
+.notice.err{background:#fde8e8;color:#7a1515}
+.notice.ok{background:#e6f7e9;color:#135c1f}
+/* hover action */
+tr.product-row .actions .btn{opacity:.0;transition:opacity .2s}
+tr.product-row:hover .actions .btn{opacity:1}
+/* product layout */
+.product{display:grid;grid-template-columns: 1.2fr 1fr;gap:18px}
+.product .cover{background:#fff;border:1px solid #e7ebf3;border-radius:12px;padding:12px}
+.product .cover img{width:100%;border-radius:10px;border:1px solid #e7ebf3}
+.product .kv{background:#fff;border:1px solid #e7ebf3;border-radius:12px;padding:12px}
+.form{max-width:520px;margin:0 auto;background:#fff;border:1px solid #e7ebf3;border-radius:12px;padding:16px}
+.form .row{display:grid;gap:6px;margin:8px 0}
+input[type=text],input[type=email],input[type=password],input[type=number],select,textarea{padding:8px;border:1px solid #cfd6e4;border-radius:8px;background:#fff}
+/* recommendations reel */
+.reel-wrap{position:relative}
+.reel{display:flex;gap:14px;overflow:auto;scroll-behavior:smooth;padding-bottom:6px}
+.card{min-width:220px;background:#fff;border:1px solid #e7ebf3;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.06);padding:10px}
+.card img{width:100%;height:130px;object-fit:cover;border-radius:10px;border:1px solid #e7ebf3;margin-bottom:8px}
+.card .title{font-weight:700;margin-bottom:6px}
+.card .price{font-weight:800}
+.reel-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;inset-inline:0;padding:0 4px;pointer-events:none}
+.reel-nav button{pointer-events:auto;border:none;background:#ffffffcc;border:1px solid #cfd6e4;border-radius:50%;width:36px;height:36px;cursor:pointer}
+@media (max-width:760px){
+  .product{grid-template-columns:1fr}
+}
+
+/* live feed */
+.live-feed{overflow:hidden;border-radius:12px;border:1px solid #e3e8f2;background:#fff}
+.live-feed .track{display:flex;gap:12px;align-items:center;padding:12px;animation:feed-scroll 30s linear infinite}
+.live-feed.paused .track{animation-play-state:paused}
+.tile{width:220px;height:140px;object-fit:cover;border-radius:10px;border:1px solid #e7ebf3;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+@keyframes feed-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* modal */
+dialog{border:none;border-radius:12px;width:min(720px,92vw);padding:0;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+.modal-body{padding:16px;max-height:70vh;overflow:auto}
+.modal-body .head{display:flex;gap:16px}
+.modal-body img{width:260px;height:160px;object-fit:cover;border-radius:10px;border:1px solid #e7ebf3}
+.modal-body h2{margin:0 0 6px}
+.modal-body .meta{color:#555;margin:8px 0}
+
+/* === Sticky footer fix === */
+html, body { height:100%; min-height:100vh; margin:0; }
+body { display:flex; flex-direction:column; }
+main { flex:1 0 auto; }
+footer { margin-top:auto !important; position:static !important; bottom:auto; }
