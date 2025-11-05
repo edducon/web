@@ -1,0 +1,135 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    background: #fafafa;
+    line-height: 1.4;
+}
+
+#main_menu {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+#main_menu a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 10px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: 0.15s ease;
+    color: #222;
+}
+#main_menu a:hover {
+    background: #f0f0f0;
+}
+#main_menu .selected {
+    background: #e9f2ff;
+    border-color: #c7ddff;
+}
+
+#side {
+    width: 160px;
+    float: left;
+    padding: 12px;
+    border-right: 1px solid #e4e4e4;
+    background: #fff;
+    min-height: calc(100vh - 48px);
+}
+#side a {
+    display: block;
+    margin: 6px 0;
+    padding: 6px 8px;
+    text-decoration: none;
+    border-radius: 8px;
+    color: #222;
+    transition: 0.15s ease;
+}
+#side a:hover {
+    background: #f5f7fb;
+}
+#side .selected {
+    background: #e9f2ff;
+    border: 1px solid #c7ddff;
+}
+
+#content {
+    margin-left: 180px; /* 160 + padding */
+    padding: 16px;
+}
+
+table {
+    border-collapse: collapse;
+    background: #fff;
+}
+td {
+    vertical-align: top;
+}
+
+.ttRow {
+    display: inline-block;
+    width: 110px;
+    vertical-align: top;
+    margin: 6px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.ttRow a { color: #1a64f0; text-decoration: none; }
+.ttRow a:hover { text-decoration: underline; }
+
+.ttSingleRow {
+    font-size: 18px;
+    margin: 10px 6px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.ttSingleRow a { color: #1a64f0; text-decoration: none; }
+.ttSingleRow a:hover { text-decoration: underline; }
+
+footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #555;
+    padding-top: 12px;
+    border-top: 1px solid #e4e4e4;
+}
+
+a:focus {
+    outline: 2px solid #1a64f0;
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+@media (max-width: 780px) {
+    #side {
+        float: none;
+        width: auto;
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid #e4e4e4;
+    }
+    #content {
+        margin-left: 0;
+    }
+    .ttRow {
+        width: calc(50% - 16px);
+    }
+}
+@media (max-width: 480px) {
+    .ttRow {
+        width: 100%;
+    }
+}
